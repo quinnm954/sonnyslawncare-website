@@ -7,19 +7,57 @@ import InlineCallStrip from "@/components/InlineCallStrip";
 import { cities } from "@/data/cities";
 import { categories } from "@/data/serviceCategories";
 import { Card, CardContent } from "@/components/ui/card";
-import { useSeo } from "@/lib/useSeo";
+import { useSeo, SITE_URL } from "@/lib/useSeo";
 import { BRAND } from "@/lib/brand";
 
 const CityPage = () => {
   const { city: citySlug } = useParams();
   const city = cities.find((c) => c.slug === citySlug);
 
+  const intro = city
+    ? `${BRAND.name} provides weekly lawn mowing, trimming, fertilization, mulch, and landscape services across ${city.name}, ${city.state} and surrounding neighborhoods.`
+    : "";
+
   useSeo({
     title: city
-      ? `Lawn Care in ${city.name}, ${city.state} — ${BRAND.name}`
+      ? `Lawn Care in ${city.name}, ${city.state} | ${BRAND.name}`
       : "City",
-    description: city?.intro ?? "",
+    description: city
+      ? `Mowing, trimming, fertilization, mulch, and landscape services in ${city.name}, ${city.state}. Call ${BRAND.phoneDisplay} for a free quote.`
+      : "",
     canonical: `/areas/${citySlug}`,
+    breadcrumbs: city
+      ? [
+          { name: "Home", url: "/" },
+          { name: "Service Areas", url: "/service-areas" },
+          { name: `${city.name}, ${city.state}`, url: `/areas/${city.slug}` },
+        ]
+      : undefined,
+    jsonLd: city
+      ? [
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: `${BRAND.name} — ${city.name}, ${city.state}`,
+            url: `${SITE_URL}/areas/${city.slug}`,
+            telephone: `+1${BRAND.phoneDigits}`,
+            image: `${SITE_URL}/og-image.jpg`,
+            priceRange: "$$",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: city.name,
+              addressRegion: city.state,
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: city.geo.lat,
+              longitude: city.geo.lng,
+            },
+            areaServed: { "@type": "City", name: `${city.name}, ${city.state}` },
+          },
+        ]
+      : undefined,
   });
 
   if (!city) return <Navigate to="/service-areas" replace />;
@@ -38,7 +76,7 @@ const CityPage = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-3">
             Lawn Care in {city.name}, {city.state}
           </h1>
-          <p className="text-lg text-muted-foreground mb-6">{city.intro}</p>
+          <p className="text-lg text-muted-foreground mb-6">{intro}</p>
           <RequestQuoteCTA size="lg" />
 
           <h2 className="text-2xl font-bold mt-12 mb-4">Services in {city.name}</h2>

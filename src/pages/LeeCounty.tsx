@@ -7,14 +7,31 @@ import { Link } from "react-router-dom";
 import { cities } from "@/data/cities";
 import { categories } from "@/data/serviceCategories";
 import { Card, CardContent } from "@/components/ui/card";
-import { useSeo } from "@/lib/useSeo";
+import { useSeo, SITE_URL } from "@/lib/useSeo";
 import { BRAND } from "@/lib/brand";
 
 const LeeCounty = () => {
   useSeo({
-    title: `Lee County Lawn Care — ${BRAND.name}`,
-    description: `Lawn care, mowing, trimming, fertilization, and landscape services across all of Lee County, FL.`,
+    title: `Lee County Lawn Care | ${BRAND.name} — Fort Myers, Cape Coral & More`,
+    description: `Lawn mowing, trimming, fertilization, mulch, sod, and landscape services across all of Lee County, FL. Free quotes — call ${BRAND.phoneDisplay}.`,
     canonical: "/lee-county-fl",
+    breadcrumbs: [
+      { name: "Home", url: "/" },
+      { name: "Service Areas", url: "/service-areas" },
+      { name: "Lee County, FL", url: "/lee-county-fl" },
+    ],
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: `Lawn Care in Lee County, FL`,
+      provider: {
+        "@type": "LocalBusiness",
+        name: BRAND.name,
+        telephone: `+1${BRAND.phoneDigits}`,
+        url: `${SITE_URL}/`,
+      },
+      areaServed: { "@type": "AdministrativeArea", name: "Lee County, FL" },
+    },
   });
 
   return (

@@ -8,9 +8,10 @@ import { BRAND } from "@/lib/brand";
 
 const ReviewLanding = () => {
   useSeo({
-    title: `Leave a Review — ${BRAND.name}`,
+    title: `Leave a Review | ${BRAND.name}`,
     description: `If you enjoyed our service, please leave a Google review.`,
     canonical: "/review",
+    noindex: true,
   });
   return (
     <div className="min-h-screen">

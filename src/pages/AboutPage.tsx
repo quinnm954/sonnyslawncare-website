@@ -2,14 +2,30 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import InlineCallStrip from "@/components/InlineCallStrip";
-import { useSeo } from "@/lib/useSeo";
+import { useSeo, SITE_URL } from "@/lib/useSeo";
 import { BRAND } from "@/lib/brand";
 
 const AboutPage = () => {
   useSeo({
-    title: `About ${BRAND.name}`,
-    description: `Locally owned lawn care company serving ${BRAND.serviceArea} with reliable weekly maintenance and landscape services.`,
+    title: `About ${BRAND.name} | Lawn Care Company in ${BRAND.serviceArea}`,
+    description: `Locally owned lawn care company serving ${BRAND.serviceArea} with reliable weekly maintenance, trimming, fertilization, and landscape services. Call ${BRAND.phoneDisplay}.`,
     canonical: "/about",
+    breadcrumbs: [
+      { name: "Home", url: "/" },
+      { name: "About", url: "/about" },
+    ],
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      name: `About ${BRAND.name}`,
+      url: `${SITE_URL}/about`,
+      mainEntity: {
+        "@type": "LocalBusiness",
+        name: BRAND.name,
+        telephone: `+1${BRAND.phoneDigits}`,
+        areaServed: BRAND.serviceArea,
+      },
+    },
   });
 
   return (

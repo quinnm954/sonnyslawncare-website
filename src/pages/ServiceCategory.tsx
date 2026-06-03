@@ -6,7 +6,7 @@ import RequestQuoteCTA from "@/components/RequestQuoteCTA";
 import InlineCallStrip from "@/components/InlineCallStrip";
 import { categories } from "@/data/serviceCategories";
 import { Card, CardContent } from "@/components/ui/card";
-import { useSeo } from "@/lib/useSeo";
+import { useSeo, SITE_URL } from "@/lib/useSeo";
 import { BRAND } from "@/lib/brand";
 
 const ServiceCategory = () => {
@@ -15,10 +15,43 @@ const ServiceCategory = () => {
 
   useSeo({
     title: category
-      ? `${category.title} in ${BRAND.serviceArea} — ${BRAND.name}`
+      ? `${category.title} in ${BRAND.serviceArea} | ${BRAND.name}`
       : "Service",
-    description: category?.description ?? "",
+    description: category
+      ? `${category.description} Call ${BRAND.phoneDisplay} for a free quote in ${BRAND.serviceArea}.`
+      : "",
     canonical: `/services/${slug}`,
+    breadcrumbs: category
+      ? [
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+          { name: category.title, url: `/services/${category.id}` },
+        ]
+      : undefined,
+    jsonLd: category
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: category.title,
+          description: category.description,
+          serviceType: category.title,
+          provider: {
+            "@type": "LocalBusiness",
+            name: BRAND.name,
+            telephone: `+1${BRAND.phoneDigits}`,
+            url: `${SITE_URL}/`,
+          },
+          areaServed: { "@type": "AdministrativeArea", name: BRAND.serviceArea },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: category.title,
+            itemListElement: category.services.map((s) => ({
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", name: s.name },
+            })),
+          },
+        }
+      : undefined,
   });
 
   if (!category) return <Navigate to="/services" replace />;
@@ -30,11 +63,16 @@ const ServiceCategory = () => {
       <Navigation />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 max-w-4xl">
+          <p className="text-sm text-muted-foreground mb-2">
+            <Link to="/services" className="hover:text-primary">Services</Link> / {category.title}
+          </p>
           <div className="mb-8">
             <div className="inline-flex p-3 rounded-lg bg-primary/10 text-primary mb-4">
               <Icon className="h-7 w-7" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-3">{category.title}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-3">
+              {category.title} in {BRAND.serviceArea}
+            </h1>
             <p className="text-lg text-muted-foreground mb-6">{category.description}</p>
             <RequestQuoteCTA size="lg" />
           </div>
