@@ -1,44 +1,76 @@
-# Inspection = the job completion
+## Rebrand to Elite Level Lawn Care
 
-Make the inspection the only thing a tech fills out per job. Merge all 9 admin-defined checklist templates into one mobile-friendly form. Completing the inspection auto-completes the job and auto-creates the service record.
+Convert this Mike's Mobile Auto Repair / Garage Ace / MMAR Care project into a marketing site for **Elite Level Lawn Care** serving Lee County, FL. Strip out everything tied to an automotive shop, customer/admin/tech portal, memberships, and the native app.
 
-## Behavior changes
+### 1. Brand swap
 
-**TechJobs (`/tech/jobs`)**
-- Remove the "Log Service & Complete" button and the entire log-service dialog.
-- Replace with a single primary action per card: **"Open Inspection"** → if an inspection already exists for that appointment, open it; otherwise create one and open it.
-- Keep status dropdown and notes field (handy for quick updates), but no manual service-record entry.
+- `src/lib/brand.ts` → single brand "Elite Level Lawn Care" (drop PLATFORM/PRODUCT split).
+- Update memory: new color/brand notes, drop MMAR / Garage Ace references.
+- Footer copyright → "Elite Level Lawn Care".
+- Use placeholder contact: phone `(555) 123-4567`, service area Lee County, FL.
+- Replace logo/favicon references with a simple text/SVG placeholder (no asset generation unless asked).
 
-**TechInspections — single merged form**
-- When creating an inspection for an appointment, pull items from **all active** `checklist_templates` (`is_active = true`), via `checklist_template_items`, and insert them as `inspection_items` grouped by template name as the category.
-- De-dupe rule: collapse identical `(category, item_name)` pairs so the same item from two templates appears once.
-- Sort by template `sort_order` then item `sort_order`, so the form reads top-down in the order the admin set up.
-- Mobile-first tweaks: sticky category headers, large pass/warn/fail/N/A buttons (min 44px tap), one-tap photo capture, a sticky "Complete inspection" bar at the bottom, collapsible categories so the form stays scannable on a phone.
+### 2. Remove portal/admin/tech & memberships
 
-**On "Complete Inspection"**
-1. Mark `inspections.status = completed`, set `completed_at`.
-2. If the inspection has an `appointment_id`:
-   - Set `appointments.status = completed`.
-   - Insert a `service_records` row using: the appointment's `service_type`, today's date, `mileage` from inspection → `mileage_at_service`, `summary_notes` → `labor_performed`, and a summary like "Inspection #abcd1234" in `technician_notes`. Skip if a service_record already exists for that `appointment_id`.
-3. Toast and return to job list.
+Delete pages, components, routes, edge functions, and DB-coupled UI for:
 
-## What gets removed
-- TechJobs: `openLog`, `saveLog`, `form` state, the entire `<Dialog>` for service logging, the "Log Service & Complete" button, related imports (Textarea, Select if unused, etc.).
-- The 12-item hardcoded `DEFAULT_TEMPLATE` in `TechInspections.tsx` — replaced by a loader that fetches `checklist_templates` + `checklist_template_items` and builds the merged item list.
+- `src/pages/portal/*`, `src/pages/admin/*`, `src/pages/tech/*`
+- `src/components/portal/*`, `src/components/admin/*`, `src/components/tech/*`, `src/components/shell/*`
+- `src/pages/MmarCare.tsx`, `GarageAce.tsx`, `WhyGarageAce.tsx`, `Fleet.tsx`, `FinancingContract.tsx`, `WarrantyPolicy.tsx`, `EstimateApproval.tsx`, `InspectionReport.tsx`, `MileageUpdate.tsx`, `SharedCustomerSummary.tsx`, `SetPassword.tsx`, `Unsubscribe.tsx`, `AppointmentConfirmation.tsx`, `Book.tsx`
+- All matching routes in `src/App.tsx`
+- Edge functions: keep only generic `send-sms` and `receive-inbound-email` if useful; delete the rest (memberships, invoices, financing, twilio voice, reminders, push, etc.) via `delete_edge_functions`.
+- Drop `src/hooks/useAuth.tsx`, `useNativePushRegistration`, related providers from `App.tsx`.
+- Remove `FinancingContract`, `WarrantyPolicy`, `Login` page (no auth needed for marketing site).
 
-## Files
+DB tables themselves stay — no destructive migrations — but unused UI is gone.
 
-Edited:
-- `src/pages/tech/TechJobs.tsx` — remove log flow; add "Open Inspection" action that creates-or-opens the appointment's inspection (navigates to `/tech/inspections?inspection=<id>` or sets internal state via shared route).
-- `src/pages/tech/TechInspections.tsx` — replace hardcoded template with merged-template loader, add auto service-record creation on completion, sticky bottom CTA, collapsible categories.
+### 3. Remove app install / native shell
 
-No database schema changes. Uses existing tables: `checklist_templates`, `checklist_template_items`, `inspections`, `inspection_items`, `service_records`, `appointments`.
+- Delete `src/pages/InstallApp.tsx`, `src/components/shell/InstallAppBanner.tsx`, `NativeBoot.tsx`, `PullToRefresh.tsx`, `MOBILE_APP_README.md`, `UNIVERSAL_LINKS.md`, `capacitor.config.ts`, `public/.well-known/apple-app-site-association`, `public/.well-known/assetlinks.json`, `public/manifest.webmanifest`.
+- Strip Capacitor deps from `package.json` and any imports.
+- Strip install banner/links from `Navigation.tsx`, `Footer.tsx`, mobile bottom nav.
 
-## Open-deep-link detail
+### 4. Automotive → Lawn care content
 
-To make "Open Inspection" from TechJobs land directly on the inspection editor, `TechInspections` will read an `?inspection=<id>` query param on mount and open that one. If the appointment has no inspection yet, TechJobs creates a draft inspection (same logic as the existing `createInspection`) then navigates with the new id.
+Replace service taxonomy with Lee County industry-standard lawn services:
 
-## Out of scope
-- Editing checklist templates themselves (admin already has `AdminChecklists`).
-- Invoice creation — admin still does that from the new `service_records` row.
-- Photo annotations / signatures.
+- Weekly Lawn Mowing
+- Edging & Line Trimming
+- Hedge & Shrub Trimming
+- Fertilization & Weed Control
+- Mulch Installation
+- Palm Tree Trimming
+- Sod Installation & Repair
+- Irrigation Repair
+- Leaf & Debris Cleanup
+- Landscape Design
+
+Files to rewrite:
+- `src/lib/serviceTypes.ts`, `src/data/serviceCategories.ts`, `src/data/serviceCityMatrix.ts`, `src/data/localLandingPages.ts`, `src/data/maintenanceIntervals.ts` (delete — auto-only), `src/lib/vehicleMasterChecklist.ts` (delete), `src/lib/auditServiceTypeTemplates.ts` (delete), `src/lib/nhtsa.ts` (delete).
+- Blog posts (`src/data/blogPosts.ts`) — replace with 3–4 lawn care starter posts.
+- Home page sections (`src/components/home/*`, `Hero`, `Services`, `About`, `Testimonials`, `Contact`, `FAQ`, `WhyChooseUs`, `VoiceSearchAnswers`, `FeaturedServices`, `PopularLocalServices`).
+- `Index.tsx`, `AboutPage`, `ServicesIndex`, `ServiceCategory`, `ServiceAreas`, `LeeCounty`, `LocalLanding`, `CityPage`, `ContactPage`, `Reviews`, `ReviewLanding`, `Blog*`, `NotFound`.
+- `index.html` meta/title/JSON-LD.
+- Email templates in `supabase/functions/_shared/transactional-email-templates/` — strip or rewrite remaining ones.
+- Floating call/SMS button keeps the placeholder number.
+
+### 5. Cleanup
+
+- Update `src/App.tsx` route list to only: `/`, `/about`, `/services`, `/services/:slug`, `/service-areas`, `/areas/:city`, `/lee-county-fl`, `/blog`, `/blog/:slug`, `/contact`, `/reviews`, `*`.
+- Trim `package.json` of now-unused deps (Capacitor, Stripe, etc.) — keep conservative.
+- Update sitemaps/robots/prerender scripts to new routes.
+- Update README.
+
+### Technical notes
+
+- This is a destructive refactor — many files deleted in bulk via `rm`.
+- Edge functions removed from disk **and** from Supabase via `delete_edge_functions`.
+- DB schema left intact (no migrations) — orphan tables are harmless and avoid data loss if you ever restore.
+- Memory file updated to reflect new brand + removed memories about MMAR/Garage Ace/portal.
+
+### Out of scope (ask later if needed)
+
+- Real logo, photography, brand colors beyond keeping current dark/green-tweaked palette.
+- Real phone number, address, owner name, license info.
+- Booking/contact form backend (currently just a `tel:` / SMS link).
+- New native app or PWA.
