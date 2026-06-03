@@ -1,16 +1,15 @@
-// Single source of truth for customer-selectable service types.
-// Each entry maps 1:1 to an auto-attach checklist template via the
-// checklist_templates.service_type_match keyword array.
+// Single source of truth for customer-selectable lawn care service types.
 export const SERVICE_TYPES = [
-  "Oil Change",
-  "Brake Service",
-  "Tire Service / Alignment",
-  "Battery / Electrical",
-  "Cooling System",
-  "Transmission Service",
-  "AC Service",
-  "Steering & Suspension",
-  "Diagnostic",
+  "Weekly Lawn Mowing",
+  "Edging & Line Trimming",
+  "Hedge & Shrub Trimming",
+  "Fertilization & Weed Control",
+  "Mulch Installation",
+  "Palm Tree Trimming",
+  "Sod Installation & Repair",
+  "Irrigation Repair",
+  "Leaf & Debris Cleanup",
+  "Landscape Design",
   "Other",
 ] as const;
 

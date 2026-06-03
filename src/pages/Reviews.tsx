@@ -2,30 +2,29 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import Testimonials from "@/components/Testimonials";
-import InlineCallStrip from "@/components/InlineCallStrip";
+import RequestQuoteCTA from "@/components/RequestQuoteCTA";
 import { useSeo } from "@/lib/useSeo";
+import { BRAND } from "@/lib/brand";
 
 const Reviews = () => {
   useSeo({
-    title: "Customer Reviews | Mike's Mobile Auto Repair",
-    description:
-      "5-star customer reviews for Mike's Mobile Auto Repair across Google, Facebook, Yelp, and Nextdoor — serving Lehigh Acres and Fort Myers.",
-    canonical: "https://mikesmautorepair.com/reviews",
-    breadcrumbs: [
-      { name: "Home", url: "https://mikesmautorepair.com/" },
-      { name: "Reviews", url: "https://mikesmautorepair.com/reviews" },
-    ],
+    title: `Reviews — ${BRAND.name}`,
+    description: `Customer reviews of ${BRAND.name} in ${BRAND.serviceArea}.`,
+    canonical: "/reviews",
   });
-
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Navigation />
-      <div className="pt-20">
+      <main className="pt-24">
+        <div className="container mx-auto px-4 text-center mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-3">Customer Reviews</h1>
+          <p className="text-muted-foreground mb-6">
+            What our customers say about working with us.
+          </p>
+          <RequestQuoteCTA size="lg" />
+        </div>
         <Testimonials />
-      </div>
-      <div className="container mx-auto px-4 max-w-3xl pb-12">
-        <InlineCallStrip label="Want to be our next 5-star review?" />
-      </div>
+      </main>
       <Footer />
       <FloatingCallButton />
     </div>

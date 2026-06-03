@@ -1,63 +1,67 @@
 import { Link } from "react-router-dom";
-import { MapPin, ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
-import InlineCallStrip from "@/components/InlineCallStrip";
+import RequestQuoteCTA from "@/components/RequestQuoteCTA";
 import { cities } from "@/data/cities";
+import { Card, CardContent } from "@/components/ui/card";
+import { MapPin } from "lucide-react";
 import { useSeo } from "@/lib/useSeo";
+import { BRAND } from "@/lib/brand";
 
 const ServiceAreas = () => {
   useSeo({
-    title: "Service Areas | Mike's Mobile Auto Repair",
-    description:
-      "Mobile mechanic service areas across Lehigh Acres and Fort Myers, FL.",
-    canonical: "https://mikesmautorepair.com/service-areas",
-    breadcrumbs: [
-      { name: "Home", url: "https://mikesmautorepair.com/" },
-      { name: "Service Areas", url: "https://mikesmautorepair.com/service-areas" },
-    ],
+    title: `Service Areas — ${BRAND.name}`,
+    description: `Cities and neighborhoods we serve across ${BRAND.serviceArea}.`,
+    canonical: "/service-areas",
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Navigation />
-      <section className="pt-28 md:pt-32 pb-16">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl tracking-wide mb-4">
-            <span className="text-sky">SERVICE</span>{" "}
-            <span className="text-gold">AREAS</span>
-          </h1>
-          <p className="text-base md:text-lg text-muted-foreground mb-10 max-w-3xl">
-            We bring fully-equipped mobile mechanic service to driveways and workplaces across Lehigh Acres and Fort Myers.
-          </p>
+      <main className="pt-24 pb-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <h1 className="text-4xl md:text-5xl font-bold mb-3">Service Areas</h1>
+            <p className="text-lg text-muted-foreground mb-6">
+              We provide weekly lawn care across {BRAND.serviceArea}.
+            </p>
+            <RequestQuoteCTA size="lg" />
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <Link to="/lee-county-fl" className="group sm:col-span-2 lg:col-span-3">
+              <Card className="hover:border-primary/40 transition-colors">
+                <CardContent className="p-5 flex items-center gap-3">
+                  <MapPin className="h-5 w-5 text-primary" />
+                  <div>
+                    <p className="font-semibold group-hover:text-primary">
+                      All of Lee County, FL
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Countywide lawn care overview
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
             {cities.map((c) => (
-              <Link
-                key={c.slug}
-                to={`/areas/${c.slug}`}
-                className="glass-card group rounded-xl p-5 border border-border/40 hover:border-primary/60 transition-all"
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <MapPin className="w-5 h-5 text-primary" />
-                  <h2 className="font-display text-lg md:text-xl tracking-wide text-foreground group-hover:text-primary">
-                    {c.name}, {c.state}
-                  </h2>
-                </div>
-                <p className="text-sm text-muted-foreground line-clamp-3 mb-3">{c.intro}</p>
-                <span className="inline-flex items-center gap-1 text-primary text-sm font-semibold">
-                  View {c.name} page <ArrowRight className="w-4 h-4" />
-                </span>
+              <Link key={c.slug} to={`/areas/${c.slug}`} className="group">
+                <Card className="h-full hover:border-primary/40 transition-colors">
+                  <CardContent className="p-5">
+                    <p className="font-semibold group-hover:text-primary">
+                      {c.name}, {c.state}
+                    </p>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {c.zips.slice(0, 4).join(", ")}
+                    </p>
+                  </CardContent>
+                </Card>
               </Link>
             ))}
           </div>
-
-          <div className="mt-12">
-            <InlineCallStrip label="Not in this list? Call to confirm — we travel." />
-          </div>
         </div>
-      </section>
+      </main>
       <Footer />
       <FloatingCallButton />
     </div>
