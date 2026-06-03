@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 15% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 15% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 15% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Sky Blue - Primary brand color */
+    --primary: 200 80% 55%;
+    --primary-foreground: 220 15% 8%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 55%;
+
+    /* Golden Yellow - Accent color */
+    --accent: 45 90% 55%;
+    --accent-foreground: 220 15% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 200 80% 55%;
+
+    --radius: 0.5rem;
+
+    /* Custom design tokens */
+    --color-sky: 200 80% 55%;
+    --color-gold: 45 90% 55%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(200, 80%, 55%) 0%, hsl(200, 90%, 45%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(45, 90%, 55%) 0%, hsl(35, 95%, 50%) 100%);
+    --gradient-brand: linear-gradient(135deg, hsl(200, 80%, 55%) 0%, hsl(45, 90%, 55%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(220, 15%, 8%) 0%, hsl(220, 15%, 5%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220, 15%, 14%) 0%, hsl(220, 15%, 10%) 100%);
+    
+    --shadow-glow: 0 0 40px hsl(200 80% 55% / 0.3);
+    --shadow-glow-gold: 0 0 40px hsl(45 90% 55% / 0.3);
+    --shadow-card: 0 10px 40px hsl(0 0% 0% / 0.4);
+    --shadow-elevated: 0 20px 60px hsl(0 0% 0% / 0.5);
+
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 220 15% 10%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 200 80% 55%;
+    --sidebar-primary-foreground: 220 15% 8%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 200 80% 55%;
+  }
+
+  .dark {
+    --background: 220 15% 8%;
+    --foreground: 0 0% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-gold {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-brand {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-sky {
+    color: hsl(var(--color-sky));
+  }
+
+  .text-gold {
+    color: hsl(var(--color-gold));
+  }
+
+  .glow-border {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.3), var(--shadow-glow);
+  }
+
+  .glow-border-gold {
+    box-shadow: 0 0 0 1px hsl(var(--accent) / 0.3), var(--shadow-glow-gold);
+  }
+
+  .glass-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+/* Print styles for financing contract */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+
+  .print\\:hidden {
+    display: none !important;
+  }
+
+  .contract-document {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .contract-document h1,
+  .contract-document h2 {
+    font-family: 'Times New Roman', serif !important;
+    color: black !important;
+  }
+
+  .contract-document h1 {
+    font-size: 18pt !important;
+  }
+
+  .contract-document h2 {
+    font-size: 12pt !important;
+  }
+
+  .contract-document p,
+  .contract-document td,
+  .contract-document th {
+    font-family: 'Times New Roman', serif !important;
+    color: black !important;
+  }
+
+  .contract-document table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  .contract-document th,
+  .contract-document td {
+    border: 1px solid black !important;
+    padding: 4pt 6pt !important;
+  }
+
+  .contract-document section {
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: 0.75in;
+    size: letter;
+  }
+}
+
+/* Mobile foundation: safe-area + tap target utilities */
+@layer utilities {
+  .safe-pt { padding-top: env(safe-area-inset-top); }
+  .safe-pb { padding-bottom: env(safe-area-inset-bottom); }
+  .safe-pl { padding-left: env(safe-area-inset-left); }
+  .safe-pr { padding-right: env(safe-area-inset-right); }
+  .pb-mobile-nav { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
+  .bottom-safe { bottom: env(safe-area-inset-bottom); }
+  .tap-44 { min-height: 44px; min-width: 44px; }
+}
