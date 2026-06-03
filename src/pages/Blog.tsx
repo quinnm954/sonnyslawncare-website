@@ -4,14 +4,31 @@ import FloatingCallButton from "@/components/FloatingCallButton";
 import { Link } from "react-router-dom";
 import { blogPosts } from "@/data/blogPosts";
 import { Card, CardContent } from "@/components/ui/card";
-import { useSeo } from "@/lib/useSeo";
+import { useSeo, SITE_URL } from "@/lib/useSeo";
 import { BRAND } from "@/lib/brand";
 
 const Blog = () => {
   useSeo({
-    title: `Lawn Care Blog — ${BRAND.name}`,
-    description: `Florida lawn care tips, seasonal guides, and how-tos from ${BRAND.name}.`,
+    title: `Lawn Care Blog | ${BRAND.name} — Florida Tips & Guides`,
+    description: `Florida lawn care tips, seasonal guides, mowing heights, fertilization schedules, and palm trimming advice from ${BRAND.name}.`,
     canonical: "/blog",
+    breadcrumbs: [
+      { name: "Home", url: "/" },
+      { name: "Blog", url: "/blog" },
+    ],
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: `${BRAND.name} Lawn Care Blog`,
+      url: `${SITE_URL}/blog`,
+      blogPost: blogPosts.map((p) => ({
+        "@type": "BlogPosting",
+        headline: p.title,
+        url: `${SITE_URL}/blog/${p.slug}`,
+        datePublished: p.date,
+        author: { "@type": "Organization", name: p.author },
+      })),
+    },
   });
 
   const sorted = [...blogPosts].sort((a, b) => b.date.localeCompare(a.date));

@@ -4,16 +4,38 @@ import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import { blogPosts } from "@/data/blogPosts";
 import { Card, CardContent } from "@/components/ui/card";
-import { useSeo } from "@/lib/useSeo";
+import { useSeo, SITE_URL } from "@/lib/useSeo";
+import { BRAND } from "@/lib/brand";
 
 const BlogTag = () => {
   const { tag } = useParams();
   const tagged = blogPosts.filter((p) => p.tags.includes(tag ?? ""));
 
   useSeo({
-    title: `#${tag} — Lawn Care Blog`,
-    description: `Posts tagged ${tag}.`,
+    title: `#${tag} | ${BRAND.name} Lawn Care Blog`,
+    description: `Lawn care blog posts tagged ${tag} from ${BRAND.name}.`,
     canonical: `/blog/tag/${tag}`,
+    noindex: tagged.length === 0,
+    breadcrumbs: [
+      { name: "Home", url: "/" },
+      { name: "Blog", url: "/blog" },
+      { name: `#${tag}`, url: `/blog/tag/${tag}` },
+    ],
+    jsonLd:
+      tagged.length > 0
+        ? {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: `Posts tagged #${tag}`,
+            url: `${SITE_URL}/blog/tag/${tag}`,
+            hasPart: tagged.map((p) => ({
+              "@type": "BlogPosting",
+              headline: p.title,
+              url: `${SITE_URL}/blog/${p.slug}`,
+              datePublished: p.date,
+            })),
+          }
+        : undefined,
   });
 
   return (

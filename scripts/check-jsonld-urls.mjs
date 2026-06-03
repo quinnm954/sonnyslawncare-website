@@ -15,7 +15,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const DIST = resolve(__dirname, "..", "dist");
-const SITE = "https://mikesmautorepair.com";
+const SITE = "https://elite-level-lawn-care.lovable.app";
 
 if (!existsSync(DIST)) {
   console.error("[url-check] dist/ not found. Run `npm run build` first.");

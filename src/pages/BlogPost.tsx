@@ -4,16 +4,44 @@ import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import InlineCallStrip from "@/components/InlineCallStrip";
 import { blogPosts } from "@/data/blogPosts";
-import { useSeo } from "@/lib/useSeo";
+import { useSeo, SITE_URL } from "@/lib/useSeo";
+import { BRAND } from "@/lib/brand";
 
 const BlogPost = () => {
   const { slug } = useParams();
   const post = blogPosts.find((p) => p.slug === slug);
 
   useSeo({
-    title: post?.title ?? "Post",
+    title: post ? `${post.title} | ${BRAND.name} Blog` : "Post",
     description: post?.excerpt ?? "",
     canonical: `/blog/${slug}`,
+    ogType: "article",
+    breadcrumbs: post
+      ? [
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" },
+          { name: post.title, url: `/blog/${post.slug}` },
+        ]
+      : undefined,
+    jsonLd: post
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: post.date,
+          dateModified: post.date,
+          author: { "@type": "Organization", name: post.author },
+          publisher: {
+            "@type": "Organization",
+            name: BRAND.name,
+            logo: { "@type": "ImageObject", url: `${SITE_URL}/favicon.png` },
+          },
+          mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
+          keywords: post.tags.join(", "),
+          image: `${SITE_URL}/og-image.jpg`,
+        }
+      : undefined,
   });
 
   if (!post) return <Navigate to="/blog" replace />;

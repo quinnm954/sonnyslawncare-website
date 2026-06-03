@@ -8,13 +8,20 @@ type SeoOptions = {
   canonical?: string;
   noindex?: boolean;
   ogImage?: string;
+  ogType?: string;
   breadcrumbs?: Breadcrumb[];
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 };
 
 const DYNAMIC_LD_ID = "ld-dynamic-seo";
-const DEFAULT_OG_IMAGE =
-  "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4c7b5790-8e1a-49ef-a408-bcd46551c2f8";
+export const SITE_URL = "https://elite-level-lawn-care.lovable.app";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+
+const absUrl = (u?: string) => {
+  if (!u) return undefined;
+  if (/^https?:\/\//i.test(u)) return u;
+  return `${SITE_URL}${u.startsWith("/") ? u : `/${u}`}`;
+};
 
 export const useSeo = ({
   title,
@@ -22,6 +29,7 @@ export const useSeo = ({
   canonical,
   noindex,
   ogImage,
+  ogType = "website",
   breadcrumbs,
   jsonLd,
 }: SeoOptions) => {
@@ -56,20 +64,23 @@ export const useSeo = ({
     }
     setMeta("robots", noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large");
     setProp("og:title", title);
+    setProp("og:type", ogType);
     setMeta("twitter:title", title);
-    setProp("og:image", ogImage || DEFAULT_OG_IMAGE);
-    setMeta("twitter:image", ogImage || DEFAULT_OG_IMAGE);
+    const img = absUrl(ogImage) || DEFAULT_OG_IMAGE;
+    setProp("og:image", img);
+    setMeta("twitter:image", img);
     setMeta("twitter:card", "summary_large_image");
 
+    const canonicalAbs = absUrl(canonical);
     let linkEl = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (canonical) {
+    if (canonicalAbs) {
       if (!linkEl) {
         linkEl = document.createElement("link");
         linkEl.setAttribute("rel", "canonical");
         document.head.appendChild(linkEl);
       }
-      linkEl.setAttribute("href", canonical);
-      setProp("og:url", canonical);
+      linkEl.setAttribute("href", canonicalAbs);
+      setProp("og:url", canonicalAbs);
     }
 
     // Cleanup any existing dynamic JSON-LD blocks
@@ -91,7 +102,7 @@ export const useSeo = ({
           "@type": "ListItem",
           position: i + 1,
           name: b.name,
-          item: b.url,
+          item: absUrl(b.url),
         })),
       });
     }
@@ -116,6 +127,7 @@ export const useSeo = ({
     canonical,
     noindex,
     ogImage,
+    ogType,
     JSON.stringify(breadcrumbs),
     JSON.stringify(jsonLd),
   ]);

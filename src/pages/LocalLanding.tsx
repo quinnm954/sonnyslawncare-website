@@ -13,6 +13,25 @@ const LocalLanding = () => {
     title: page?.title ?? "Local Lawn Care",
     description: page?.metaDescription ?? "",
     canonical: `/local/${slug}`,
+    noindex: !page,
+    breadcrumbs: page
+      ? [
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+          { name: page.h1, url: `/local/${slug}` },
+        ]
+      : undefined,
+    jsonLd: page
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: page.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: { "@type": "Answer", text: f.answer },
+          })),
+        }
+      : undefined,
   });
 
   if (!page) return <Navigate to="/services" replace />;

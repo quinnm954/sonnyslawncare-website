@@ -3,20 +3,57 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import TrustBadges from "@/components/TrustBadges";
 import Services from "@/components/Services";
-import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
-import SeoContent from "@/components/SeoContent";
-import Newsletter from "@/components/Newsletter";
+import RequestQuoteCTA from "@/components/RequestQuoteCTA";
 import FloatingCallButton from "@/components/FloatingCallButton";
-import { useSeo } from "@/lib/useSeo";
+import { useSeo, SITE_URL } from "@/lib/useSeo";
 import { BRAND } from "@/lib/brand";
+import { REVIEWS_META } from "@/data/reviewsMeta";
 
 const Index = () => {
   useSeo({
-    title: `${BRAND.name} — Lawn Care in ${BRAND.serviceArea}`,
-    description: `Weekly lawn mowing, trimming, fertilization, mulch, and full landscape services across ${BRAND.serviceArea}. Call ${BRAND.phoneDisplay} for a free quote.`,
+    title: `${BRAND.name} | Lawn Care in ${BRAND.serviceArea}`,
+    description: `Weekly mowing, trimming, fertilization, mulch, and full landscape services across ${BRAND.serviceArea}. Call ${BRAND.phoneDisplay} for a free quote.`,
     canonical: "/",
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: BRAND.name,
+        url: `${SITE_URL}/`,
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": `${SITE_URL}/#business`,
+        name: BRAND.name,
+        url: `${SITE_URL}/`,
+        image: `${SITE_URL}/og-image.jpg`,
+        telephone: `+1${BRAND.phoneDigits}`,
+        priceRange: "$$",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Fort Myers",
+          addressRegion: "FL",
+          addressCountry: "US",
+        },
+        areaServed: [
+          { "@type": "City", name: "Fort Myers, FL" },
+          { "@type": "City", name: "Cape Coral, FL" },
+          { "@type": "City", name: "Lehigh Acres, FL" },
+          { "@type": "City", name: "Bonita Springs, FL" },
+          { "@type": "City", name: "Estero, FL" },
+          { "@type": "AdministrativeArea", name: "Lee County, FL" },
+        ],
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: REVIEWS_META.ratingValue,
+          reviewCount: REVIEWS_META.reviewCount,
+          bestRating: REVIEWS_META.bestRating,
+          worstRating: REVIEWS_META.worstRating,
+        },
+      },
+    ],
   });
 
   return (
@@ -26,11 +63,18 @@ const Index = () => {
         <Hero />
         <TrustBadges />
         <Services />
-        <About />
         <Testimonials />
-        <SeoContent />
-        <Newsletter />
-        <Contact />
+        <section className="py-16 md:py-20 text-center">
+          <div className="container mx-auto px-4 max-w-2xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              Ready for a greener lawn?
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              Call or text {BRAND.phoneDisplay} for a free quote in {BRAND.serviceArea}.
+            </p>
+            <RequestQuoteCTA size="lg" />
+          </div>
+        </section>
       </main>
       <Footer />
       <FloatingCallButton />
