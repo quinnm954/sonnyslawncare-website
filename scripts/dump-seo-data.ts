@@ -39,7 +39,7 @@ const out = {
     slug: p.slug,
     title: p.title,
     excerpt: p.excerpt,
-    dateISO: p.dateISO,
+    dateISO: (p as any).dateISO ?? (p as any).date,
     readMinutes: p.readMinutes,
     tags: p.tags,
     body: p.body,
