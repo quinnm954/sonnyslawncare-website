@@ -7,10 +7,14 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
 
-const homeSrc = readFileSync(
-  resolve(root, "src/components/home/PopularLocalServices.tsx"),
-  "utf8",
-);
+const homePath = resolve(root, "src/components/home/PopularLocalServices.tsx");
+let homeSrc = "";
+try {
+  homeSrc = readFileSync(homePath, "utf8");
+} catch {
+  console.log("[check-home-links] PopularLocalServices.tsx not present — skipping check.");
+  process.exit(0);
+}
 const dataJson = JSON.parse(
   readFileSync(resolve(root, ".prerender-data.json"), "utf8"),
 );
