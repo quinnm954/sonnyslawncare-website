@@ -1,56 +1,35 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-
-    // Simulate subscription
-    setTimeout(() => {
-      toast({
-        title: "Successfully subscribed!",
-        description: "You'll receive our weekly updates and discounts.",
-      });
-      setEmail("");
-      setIsLoading(false);
-    }, 1000);
+    if (!email) return;
+    toast.success("Thanks! We'll be in touch with seasonal lawn tips.");
+    setEmail("");
   };
 
   return (
-    <section className="py-12 md:py-16 bg-secondary/30">
+    <section className="py-12 bg-secondary/20 border-y border-border">
       <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5 md:mb-6">
-            <Mail className="w-7 h-7 md:w-8 md:h-8 text-primary" />
-          </div>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl tracking-wide text-foreground mb-3 md:mb-4">
-            JOIN OUR WEEKLY NEWSLETTER
-          </h2>
-          <p className="text-sm md:text-base text-muted-foreground mb-6 md:mb-8 px-2">
-            Get free weekly updates and surprise discounts on services delivered
-            straight to your inbox.
+        <div className="max-w-xl mx-auto text-center">
+          <h2 className="text-2xl font-bold mb-2">Seasonal lawn tips, no spam</h2>
+          <p className="text-sm text-muted-foreground mb-6">
+            Quick monthly emails about Florida-specific lawn care.
           </p>
-
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto px-2">
+          <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-2">
             <Input
               type="email"
-              placeholder="Enter your email"
+              required
+              placeholder="you@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
-              className="flex-1 bg-card border-border focus:border-primary min-h-[48px] text-base"
             />
-            <Button type="submit" variant="hero" className="min-h-[48px] sm:w-auto" disabled={isLoading}>
-              {isLoading ? "Subscribing..." : "Subscribe"}
-            </Button>
+            <Button type="submit">Subscribe</Button>
           </form>
         </div>
       </div>
