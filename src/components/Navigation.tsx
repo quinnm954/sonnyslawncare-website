@@ -17,17 +17,33 @@ const NAV_ITEMS = [
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const close = useCallback(() => setIsOpen(false), []);
 
-  // Track scroll for sticky shadow
+  // Track scroll for sticky shadow and hide on mobile scroll-down
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 4);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 4);
+      // Hide header on mobile when scrolling down, show when scrolling up
+      const dy = y - lastScrollY.current;
+      if (y < 80) {
+        setHidden(false);
+      } else if (dy > 8) {
+        setHidden(true);
+        if (isOpen) close();
+      } else if (dy < -8) {
+        setHidden(false);
+      }
+      lastScrollY.current = y;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isOpen, close]);
 
   // Close on Escape
   useEffect(() => {
@@ -70,9 +86,9 @@ const Navigation = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border transition-shadow ${
+      className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border transition-all duration-300 ${
         scrolled ? "shadow-sm" : ""
-      }`}
+      } ${hidden ? "-translate-y-full" : "translate-y-0"}`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -135,14 +151,18 @@ const Navigation = () => {
 
       {/* Mobile menu overlay */}
       {isOpen && (
-        <div className="fixed inset-0 top-16 bg-black/40 z-40 lg:hidden" onClick={close} />
+        <div
+          className="fixed inset-0 top-16 bg-black/40 z-40 lg:hidden"
+          onClick={close}
+          aria-hidden="true"
+        />
       )}
 
       {/* Mobile menu drawer */}
       <div
         id="mobile-nav-menu"
         ref={menuRef}
-        className={`lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg transition-all duration-200 ${
+        className={`lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg z-[60] transition-all duration-200 ${
           isOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-2 pointer-events-none"
