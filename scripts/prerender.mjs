@@ -17,7 +17,7 @@ import { dirname, resolve, join } from "node:path";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 const DIST = resolve(ROOT, "dist");
-const SITE = "https://mikesmautorepair.com";
+const SITE = "https://elite-level-lawn-care.lovable.app";
 const DEFAULT_OG =
   "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4c7b5790-8e1a-49ef-a408-bcd46551c2f8";
 const LOGO = `${SITE}/mmar-logo.jpeg`;

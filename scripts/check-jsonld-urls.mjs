@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Verify that every URL inside a route's JSON-LD points to the
- * production canonical base (https://mikesmautorepair.com) AND that
+ * production canonical base (https://elite-level-lawn-care.lovable.app) AND that
  * the route's "self" identifiers (canonical, og:url, mainEntityOfPage,
  * the trailing breadcrumb item, Article/Service `url`) match the
  * route's own canonical path.
