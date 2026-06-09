@@ -12,7 +12,7 @@ const Hero = () => {
             Serving {BRAND.serviceArea}
           </p>
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-4 text-balance">
-            Premium lawn care that{" "}
+            Premium landscaping & tree services that{" "}
             <span className="text-primary">shows up every week</span>
           </h1>
           <p className="text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto">

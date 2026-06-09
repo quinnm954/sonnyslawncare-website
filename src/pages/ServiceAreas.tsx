@@ -49,7 +49,7 @@ const ServiceAreas = () => {
               Service Areas in {BRAND.serviceArea}
             </h1>
             <p className="text-lg text-muted-foreground mb-6">
-              We provide weekly lawn care across {BRAND.serviceArea}.
+              We provide weekly landscaping & tree services across {BRAND.serviceArea}.
             </p>
             <RequestQuoteCTA size="lg" />
           </div>
@@ -64,7 +64,7 @@ const ServiceAreas = () => {
                       All of Lee County, FL
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Countywide lawn care overview
+                      Countywide landscaping & tree services overview
                     </p>
                   </div>
                 </CardContent>

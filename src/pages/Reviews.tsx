@@ -9,7 +9,7 @@ import { REVIEWS_META } from "@/data/reviewsMeta";
 
 const Reviews = () => {
   useSeo({
-    title: `Reviews of ${BRAND.name} | Lawn Care in ${BRAND.serviceArea}`,
+    title: `Reviews of ${BRAND.name} | Landscaping & Tree Services in ${BRAND.serviceArea}`,
     description: `Customer reviews of ${BRAND.name} — ${REVIEWS_META.ratingValue}★ from ${REVIEWS_META.reviewCount} customers across ${BRAND.serviceArea}.`,
     canonical: "/reviews",
     breadcrumbs: [

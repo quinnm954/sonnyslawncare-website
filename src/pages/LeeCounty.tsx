@@ -12,7 +12,7 @@ import { BRAND } from "@/lib/brand";
 
 const LeeCounty = () => {
   useSeo({
-    title: `Lee County Lawn Care | ${BRAND.name} — Fort Myers, Cape Coral & More`,
+    title: `Lee & Collier County Landscaping & Tree Services | ${BRAND.name} — Fort Myers, Cape Coral & More`,
     description: `Lawn mowing, trimming, fertilization, mulch, sod, and landscape services across all of Lee County, FL. Free quotes — call ${BRAND.phoneDisplay}.`,
     canonical: "/lee-county-fl",
     breadcrumbs: [
@@ -23,7 +23,7 @@ const LeeCounty = () => {
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Service",
-      name: `Lawn Care in Lee County, FL`,
+      name: `Landscaping & Tree Services in Lee County, FL`,
       provider: {
         "@type": "LocalBusiness",
         name: BRAND.name,
@@ -40,7 +40,7 @@ const LeeCounty = () => {
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 max-w-5xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-3">
-            Lee County Lawn Care
+            Lee & Collier County Landscaping & Tree Services
           </h1>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl">
             {BRAND.name} provides weekly lawn maintenance, hedge and palm trimming,

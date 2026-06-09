@@ -12,7 +12,7 @@ const Footer = () => {
           <div>
             <p className="text-lg font-bold text-primary mb-2">{BRAND.name}</p>
             <p className="text-sm text-muted-foreground">
-              Premium lawn care across {BRAND.serviceArea} — mowing, trimming, fertilization, and full landscape services.
+              Premium landscaping & tree services across {BRAND.serviceArea} — mowing, trimming, fertilization, and full landscape services.
             </p>
             <a
               href={`tel:${BRAND.phoneDigits}`}

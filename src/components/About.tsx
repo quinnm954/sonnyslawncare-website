@@ -8,7 +8,7 @@ const About = () => (
       <div className="max-w-3xl mx-auto text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-3">Why {BRAND.shortName}?</h2>
         <p className="text-muted-foreground">
-          We're a Lee County-based lawn care crew focused on consistency, quality, and
+          We're a Lee County-based landscaping & tree services crew focused on consistency, quality, and
           showing up when we say we will.
         </p>
       </div>

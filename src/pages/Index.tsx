@@ -12,7 +12,7 @@ import { REVIEWS_META } from "@/data/reviewsMeta";
 
 const Index = () => {
   useSeo({
-    title: `${BRAND.name} | Lawn Care in ${BRAND.serviceArea}`,
+    title: `${BRAND.name} | Landscaping & Tree Services in ${BRAND.serviceArea}`,
     description: `Weekly mowing, trimming, fertilization, mulch, and full landscape services across ${BRAND.serviceArea}. Call ${BRAND.phoneDisplay} for a free quote.`,
     canonical: "/",
     jsonLd: [

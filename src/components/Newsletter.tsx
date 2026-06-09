@@ -19,7 +19,7 @@ const Newsletter = () => {
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-2">Seasonal lawn tips, no spam</h2>
           <p className="text-sm text-muted-foreground mb-6">
-            Quick monthly emails about Florida-specific lawn care.
+            Quick monthly emails about Florida-specific landscaping & tree services.
           </p>
           <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-2">
             <Input

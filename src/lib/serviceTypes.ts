@@ -1,4 +1,4 @@
-// Single source of truth for customer-selectable lawn care service types.
+// Single source of truth for customer-selectable landscaping & tree services service types.
 export const SERVICE_TYPES = [
   "Weekly Lawn Mowing",
   "Edging & Line Trimming",

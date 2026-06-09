@@ -7,8 +7,8 @@ import { BRAND } from "@/lib/brand";
 
 const AboutPage = () => {
   useSeo({
-    title: `About ${BRAND.name} | Lawn Care Company in ${BRAND.serviceArea}`,
-    description: `Locally owned lawn care company serving ${BRAND.serviceArea} with reliable weekly maintenance, trimming, fertilization, and landscape services. Call ${BRAND.phoneDisplay}.`,
+    title: `About ${BRAND.name} | Landscaping & Tree Services Company in ${BRAND.serviceArea}`,
+    description: `Locally owned landscaping & tree services company serving ${BRAND.serviceArea} with reliable weekly maintenance, trimming, fertilization, and landscape services. Call ${BRAND.phoneDisplay}.`,
     canonical: "/about",
     breadcrumbs: [
       { name: "Home", url: "/" },
@@ -35,7 +35,7 @@ const AboutPage = () => {
         <div className="container mx-auto px-4 max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About {BRAND.name}</h1>
           <p className="text-lg text-muted-foreground mb-6">
-            We're a locally owned lawn care crew based in Lee County, Florida, focused on
+            We're a locally owned landscaping & tree services crew based in Lee County, Florida, focused on
             doing weekly maintenance the right way and treating every yard like our own.
           </p>
           <h2 className="text-2xl font-bold mt-10 mb-3">What we do</h2>
