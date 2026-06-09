@@ -52,7 +52,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/lee-county-fl" className="text-muted-foreground hover:text-primary">
-                  Lee County, FL
+                  Lee &amp; Collier County, FL
                 </Link>
               </li>
               {cities.slice(0, 6).map((c) => (
