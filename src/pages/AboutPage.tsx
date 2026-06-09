@@ -8,7 +8,7 @@ import { BRAND } from "@/lib/brand";
 const AboutPage = () => {
   useSeo({
     title: `About ${BRAND.name} | Landscaping & Tree Services Company in ${BRAND.serviceArea}`,
-    description: `Locally owned landscaping & tree services company serving ${BRAND.serviceArea} with reliable weekly maintenance, trimming, fertilization, and landscape services. Call ${BRAND.phoneDisplay}.`,
+    description: `Locally owned landscaping & tree services company serving ${BRAND.serviceArea} with reliable weekly maintenance, tree trimming & removal, mulch, sod, and landscape design. Call ${BRAND.phoneDisplay}.`,
     canonical: "/about",
     breadcrumbs: [
       { name: "Home", url: "/" },

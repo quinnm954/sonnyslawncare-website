@@ -11,7 +11,7 @@ import { BRAND } from "@/lib/brand";
 const ServicesIndex = () => {
   useSeo({
     title: `Landscaping & Tree Services in ${BRAND.serviceArea} | ${BRAND.name}`,
-    description: `Mowing, trimming, fertilization, mulch, sod, irrigation, and landscape design across ${BRAND.serviceArea}. Free quotes — call ${BRAND.phoneDisplay}.`,
+    description: `Landscape design, tree trimming & removal, mulch, sod, irrigation, and full-property maintenance across ${BRAND.serviceArea}. Free quotes — call ${BRAND.phoneDisplay}.`,
     canonical: "/services",
     breadcrumbs: [
       { name: "Home", url: "/" },

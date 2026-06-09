@@ -10,7 +10,7 @@ import { BRAND } from "@/lib/brand";
 const Blog = () => {
   useSeo({
     title: `Landscape & Tree Care Blog | ${BRAND.name} — Florida Tips & Guides`,
-    description: `Florida landscaping & tree services tips, seasonal guides, mowing heights, fertilization schedules, and palm trimming advice from ${BRAND.name}.`,
+    description: `Florida landscaping and tree care tips, seasonal guides, mowing heights, fertilization schedules, and palm trimming advice from ${BRAND.name}.`,
     canonical: "/blog",
     breadcrumbs: [
       { name: "Home", url: "/" },
