@@ -35,14 +35,16 @@ const AboutPage = () => {
         <div className="container mx-auto px-4 max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About {BRAND.name}</h1>
           <p className="text-lg text-muted-foreground mb-6">
-            We're a locally owned landscaping & tree services crew based in Lee County, Florida, focused on
-            doing weekly maintenance the right way and treating every yard like our own.
+            We're a locally owned landscaping and tree services crew based in Lehigh Acres, Florida,
+            focused on craftsmanship, consistency, and treating every property like our own. As FNGLA
+            Certified Horticultural Professionals through UF's program, we match plants and pruning
+            to your site — not to guesswork.
           </p>
           <h2 className="text-2xl font-bold mt-10 mb-3">What we do</h2>
           <p className="text-muted-foreground mb-4">
-            From weekly mowing and edging to hedge and palm trimming, fertilization
-            programs, mulch installs, sod repair, and full landscape design — we cover
-            everything a Southwest Florida property needs to look its best.
+            Weekly and bi-weekly maintenance, hedge and palm trimming, tree trimming and removal
+            (including stump grinding), mulch installation, sod repair, plant installs, and
+            full landscape design — everything a Southwest Florida property needs to look its best.
           </p>
           <h2 className="text-2xl font-bold mt-10 mb-3">Where we work</h2>
           <p className="text-muted-foreground mb-4">
