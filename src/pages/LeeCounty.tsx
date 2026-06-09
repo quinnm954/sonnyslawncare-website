@@ -44,7 +44,8 @@ const LeeCounty = () => {
           </h1>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl">
             {BRAND.name} provides weekly property maintenance, hedge and palm trimming,
-            fertilization, mulch, sod, and landscape installs across all of Lee County, FL.
+            tree trimming &amp; removal, mulch, sod, and full landscape installs across
+            Lee &amp; Collier County, FL.
           </p>
           <RequestQuoteCTA size="lg" />
 
