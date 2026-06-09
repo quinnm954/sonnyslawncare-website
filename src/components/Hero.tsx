@@ -12,11 +12,11 @@ const Hero = () => {
             Serving {BRAND.serviceArea}
           </p>
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-4 text-balance">
-            Premium landscaping & tree services that{" "}
-            <span className="text-primary">shows up every week</span>
+            Landscaping & tree services{" "}
+            <span className="text-primary">done right, the first time</span>
           </h1>
           <p className="text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto">
-            Weekly mowing, trimming, fertilization, mulch, and full landscape services across Lee County, FL.
+            Landscape design, tree trimming &amp; removal, mulch, sod, and full-property maintenance across Lee &amp; Collier County, FL. Licensed, insured, and FNGLA Certified.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button asChild size="lg" variant="default" className="gap-2 w-full sm:w-auto min-h-12">
