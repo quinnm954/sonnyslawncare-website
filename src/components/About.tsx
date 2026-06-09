@@ -8,8 +8,9 @@ const About = () => (
       <div className="max-w-3xl mx-auto text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-3">Why {BRAND.shortName}?</h2>
         <p className="text-muted-foreground">
-          We're a Lee County-based landscaping & tree services crew focused on consistency, quality, and
-          showing up when we say we will.
+          A small, locally owned landscaping and tree services crew based in Lehigh Acres,
+          serving Lee &amp; Collier County with consistency, craftsmanship, and FNGLA-certified
+          horticultural expertise.
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -17,17 +18,17 @@ const About = () => (
           {
             icon: Clock,
             title: "Reliable schedule",
-            body: "Same day every week, no surprises. We text before we arrive.",
+            body: "Weekly and bi-weekly routes you can count on. We text before we arrive.",
           },
           {
             icon: Leaf,
-            title: "Florida-grass expertise",
-            body: "St. Augustine, Zoysia, Bahia — we know how to keep them thick and green.",
+            title: "FNGLA Certified",
+            body: "Certified Horticultural Professionals through UF's FNGLA program — plants matched to your site, not guesswork.",
           },
           {
             icon: ShieldCheck,
             title: "Licensed & insured",
-            body: "Fully insured crews and commercial-grade equipment on every job.",
+            body: "Fully licensed and insured Florida landscaping business with commercial-grade equipment on every job.",
           },
         ].map((f) => {
           const Icon = f.icon;
