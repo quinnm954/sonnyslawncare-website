@@ -12,7 +12,7 @@ const Footer = () => {
           <div>
             <p className="text-lg font-bold text-primary mb-2">{BRAND.name}</p>
             <p className="text-sm text-muted-foreground">
-              Premium landscaping & tree services across {BRAND.serviceArea} — mowing, trimming, fertilization, and full landscape services.
+              Landscaping &amp; tree services across {BRAND.serviceArea} — landscape design, tree trimming &amp; removal, mulch, sod, and full-property maintenance. Licensed, insured, and FNGLA Certified.
             </p>
             <a
               href={`tel:${BRAND.phoneDigits}`}
