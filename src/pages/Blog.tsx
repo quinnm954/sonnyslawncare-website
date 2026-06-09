@@ -9,8 +9,8 @@ import { BRAND } from "@/lib/brand";
 
 const Blog = () => {
   useSeo({
-    title: `Lawn Care Blog | ${BRAND.name} — Florida Tips & Guides`,
-    description: `Florida lawn care tips, seasonal guides, mowing heights, fertilization schedules, and palm trimming advice from ${BRAND.name}.`,
+    title: `Landscape & Tree Care Blog | ${BRAND.name} — Florida Tips & Guides`,
+    description: `Florida landscaping and tree care tips, seasonal guides, mowing heights, fertilization schedules, and palm trimming advice from ${BRAND.name}.`,
     canonical: "/blog",
     breadcrumbs: [
       { name: "Home", url: "/" },
@@ -19,7 +19,7 @@ const Blog = () => {
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Blog",
-      name: `${BRAND.name} Lawn Care Blog`,
+      name: `${BRAND.name} Landscape & Tree Care Blog`,
       url: `${SITE_URL}/blog`,
       blogPost: blogPosts.map((p) => ({
         "@type": "BlogPosting",
@@ -38,9 +38,9 @@ const Blog = () => {
       <Navigation />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-3">Lawn Care Blog</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-3">Landscape & Tree Care Blog</h1>
           <p className="text-lg text-muted-foreground mb-8">
-            Florida-specific lawn care tips from our crew.
+            Florida-specific landscaping & tree services tips from our crew.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {sorted.map((p) => (

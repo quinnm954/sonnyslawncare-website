@@ -37,14 +37,15 @@ export const categories: Category[] = [
   },
   {
     id: "trimming-pruning",
-    title: "Trimming & Pruning",
+    title: "Tree & Palm Services",
     icon: TreePine,
     description:
-      "Hedge, shrub, and palm tree trimming that keeps your property healthy, safe, and looking its best.",
+      "Tree trimming and removal, palm care, hedge and shrub pruning — done to FNGLA standards across Lee & Collier County.",
     services: [
-      { icon: TreePine, name: "Hedge & Shrub Trimming" },
-      { icon: Trees, name: "Palm Tree Trimming" },
-      { icon: Scissors, name: "Ornamental Pruning" },
+      { icon: Trees, name: "Tree Trimming & Pruning" },
+      { icon: Trees, name: "Tree Removal & Stump Grinding" },
+      { icon: TreePine, name: "Palm Tree Trimming" },
+      { icon: Scissors, name: "Hedge & Shrub Trimming" },
     ],
   },
   {

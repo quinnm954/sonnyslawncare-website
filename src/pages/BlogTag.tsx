@@ -12,8 +12,8 @@ const BlogTag = () => {
   const tagged = blogPosts.filter((p) => p.tags.includes(tag ?? ""));
 
   useSeo({
-    title: `#${tag} | ${BRAND.name} Lawn Care Blog`,
-    description: `Lawn care blog posts tagged ${tag} from ${BRAND.name}.`,
+    title: `#${tag} | ${BRAND.name} Landscape & Tree Care Blog`,
+    description: `Landscape and tree care blog posts tagged ${tag} from ${BRAND.name}.`,
     canonical: `/blog/tag/${tag}`,
     noindex: tagged.length === 0,
     breadcrumbs: [

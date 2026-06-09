@@ -15,15 +15,15 @@ const CityPage = () => {
   const city = cities.find((c) => c.slug === citySlug);
 
   const intro = city
-    ? `${BRAND.name} provides weekly lawn mowing, trimming, fertilization, mulch, and landscape services across ${city.name}, ${city.state} and surrounding neighborhoods.`
+    ? `${BRAND.name} provides weekly maintenance, tree trimming & removal, mulch, sod, and landscape design across ${city.name}, ${city.state} and surrounding neighborhoods.`
     : "";
 
   useSeo({
     title: city
-      ? `Lawn Care in ${city.name}, ${city.state} | ${BRAND.name}`
+      ? `Landscaping & Tree Services in ${city.name}, ${city.state} | ${BRAND.name}`
       : "City",
     description: city
-      ? `Mowing, trimming, fertilization, mulch, and landscape services in ${city.name}, ${city.state}. Call ${BRAND.phoneDisplay} for a free quote.`
+      ? `Landscape design, tree trimming, mulch, sod, and full landscape services in ${city.name}, ${city.state}. Call ${BRAND.phoneDisplay} for a free quote.`
       : "",
     canonical: `/areas/${citySlug}`,
     breadcrumbs: city
@@ -74,7 +74,7 @@ const CityPage = () => {
             / {city.name}
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-3">
-            Lawn Care in {city.name}, {city.state}
+            Landscaping & Tree Services in {city.name}, {city.state}
           </h1>
           <p className="text-lg text-muted-foreground mb-6">{intro}</p>
           <RequestQuoteCTA size="lg" />

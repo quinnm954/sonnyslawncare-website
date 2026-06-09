@@ -20,7 +20,7 @@ const DIST = resolve(ROOT, "dist");
 const SITE = "https://elite-level-lawn-care.lovable.app";
 const DEFAULT_OG =
   "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4c7b5790-8e1a-49ef-a408-bcd46551c2f8";
-const LOGO = `${SITE}/mmar-logo.jpeg`;
+const LOGO = `${SITE}/favicon.png`;
 const HERO_IMG = `${SITE}/blog-hero.jpg`;
 
 if (!existsSync(DIST)) {
@@ -45,7 +45,7 @@ const slugifyTag = (t) =>
 const businessRef = { "@id": `${SITE}/#business` };
 const orgPublisher = {
   "@type": "Organization",
-  name: "Mike's Mobile Auto Repair",
+  name: "Sonny's Landscaping & Tree Services",
   url: SITE,
   logo: { "@type": "ImageObject", url: LOGO, width: 600, height: 600 },
 };
@@ -79,7 +79,7 @@ const push = (r) => routes.push(r);
 
 // Home
 const HOME_SERVICES = [
-  "Mobile Auto Repair",
+  "Landscaping & Tree Services",
   "Brake Repair",
   "Battery Replacement",
   "Alternator Repair",
@@ -103,9 +103,9 @@ const HOME_CITIES = [
 push({
   path: "/",
   title:
-    "Auto Repair Near Me | Mobile Auto Repair in Lehigh Acres, Fort Myers, Cape Coral, Naples, Estero & Bonita Springs FL",
+    "Landscaping & Tree Services Near Me | Lehigh Acres, Fort Myers, Cape Coral, Naples, Estero & Bonita Springs FL",
   description:
-    "Auto repair near me in Lehigh Acres, Fort Myers, Cape Coral, Naples, Estero & Bonita Springs, FL. Mobile mechanic comes to you — diagnostics, brakes, batteries, oil changes. Call (813) 501-7572.",
+    "Landscaping & tree services across Lehigh Acres, Fort Myers, Cape Coral, Naples, Estero & Bonita Springs, FL — landscape design, tree trimming & removal, mulch, sod, mowing. FNGLA Certified. Call (239) 265-0439.",
   canonical: `${SITE}/`,
   // The AutoRepair business entity (with aggregateRating, hours, address,
   // sameAs) is declared once in index.html under @id #business. Here we
@@ -119,8 +119,8 @@ push({
         {
           "@type": "AutoRepair",
           "@id": `${SITE}/#business`,
-          name: "Mike's Mobile Auto Repair LLC",
-          telephone: "+18135017572",
+          name: "Sonny's Landscaping & Tree Services",
+          telephone: "+12392650439",
           url: `${SITE}/`,
           address: {
             "@type": "PostalAddress",
@@ -151,7 +151,7 @@ push({
           ],
           hasOfferCatalog: {
             "@type": "OfferCatalog",
-            name: "Mobile Auto Repair Services",
+            name: "Landscaping & Tree Services",
             itemListElement: HOME_SERVICES.map((s) => ({
               "@type": "Offer",
               itemOffered: { "@type": "Service", name: s },
@@ -160,8 +160,8 @@ push({
         },
         ...HOME_CITIES.map((c) => ({
           "@type": "Service",
-          name: `Auto Repair in ${c.name}, ${c.state}`,
-          serviceType: "Mobile Auto Repair",
+          name: `Landscaping & Tree Services in ${c.name}, ${c.state}`,
+          serviceType: "Landscaping & Tree Services",
           provider: businessRef,
           areaServed: {
             "@type": "City",
@@ -188,9 +188,9 @@ push({
 // About
 push({
   path: "/about",
-  title: "About MMAR | Mike's Mobile Auto Repair LLC",
+  title: "About Sonny's | Sonny's Landscaping & Tree Services",
   description:
-    "Mike's Mobile Auto Repair LLC — honest, on-site mobile mechanic serving Lehigh Acres and Fort Myers.",
+    "Sonny's Landscaping & Tree Services — locally owned landscaping and tree services serving Lehigh Acres and Fort Myers.",
   canonical: `${SITE}/about`,
   jsonLd: [
     breadcrumb([
@@ -203,9 +203,9 @@ push({
 // Services index
 push({
   path: "/services",
-  title: "Mobile Mechanic Services | Mike's Mobile Auto Repair",
+  title: "Landscaping & Tree Services | Sonny's Landscaping & Tree Services",
   description:
-    "All mobile mechanic services offered across Lehigh Acres and Fort Myers — diagnostics, brakes, batteries, alternators, no-start.",
+    "All landscaping & tree services offered across Lee & Collier County — landscape design, tree trimming & removal, mulch, sod, mowing, palm care.",
   canonical: `${SITE}/services`,
   jsonLd: [
     breadcrumb([
@@ -220,7 +220,7 @@ for (const c of DATA.categories) {
   const url = `${SITE}/services/${c.id}`;
   push({
     path: `/services/${c.id}`,
-    title: `${c.title} | Mobile Mechanic Lehigh Acres and Fort Myers | Mike's Mobile Auto Repair`,
+    title: `${c.title} | Landscaping & Tree Services Lehigh Acres & Fort Myers | Sonny's Landscaping & Tree Services`,
     description: c.description,
     canonical: url,
     jsonLd: [
@@ -257,9 +257,9 @@ for (const c of DATA.categories) {
 // Service areas index
 push({
   path: "/service-areas",
-  title: "Service Areas | Mike's Mobile Auto Repair",
+  title: "Service Areas | Sonny's Landscaping & Tree Services",
   description:
-    "Mobile mechanic service areas across Lehigh Acres and Fort Myers, FL.",
+    "Landscaping & tree services across Lee & Collier County, FL — Lehigh Acres, Fort Myers, Cape Coral, Bonita Springs, Estero & Naples.",
   canonical: `${SITE}/service-areas`,
   jsonLd: [
     breadcrumb([
@@ -305,7 +305,7 @@ for (const city of DATA.cities) {
 
   push({
     path: `/areas/${city.slug}`,
-    title: `Mobile Mechanic in ${city.name}, ${city.state} | Mike's Mobile Auto Repair`,
+    title: `Landscaping & Tree Services in ${city.name}, ${city.state} | Sonny's Landscaping & Tree Services`,
     description: city.intro.slice(0, 158),
     canonical: url,
     jsonLd: blocks,
@@ -315,9 +315,9 @@ for (const city of DATA.cities) {
 // Reviews
 push({
   path: "/reviews",
-  title: "Customer Reviews | Mike's Mobile Auto Repair",
+  title: "Customer Reviews | Sonny's Landscaping & Tree Services",
   description:
-    "5-star customer reviews for Mike's Mobile Auto Repair across Google, Facebook, Yelp, and Nextdoor — serving Lehigh Acres and Fort Myers.",
+    "5-star customer reviews for Sonny's across Google, Facebook, and Nextdoor — serving Lee & Collier County.",
   canonical: `${SITE}/reviews`,
   jsonLd: [
     breadcrumb([
@@ -330,9 +330,9 @@ push({
 // Contact
 push({
   path: "/contact",
-  title: "Contact Mike's Mobile Auto Repair | Call or Text (813) 501-7572",
+  title: "Contact Sonny's Landscaping & Tree Services | Call or Text (239) 265-0439",
   description:
-    "Call or text Mike's Mobile Auto Repair at (813) 501-7572 for same-day mobile mechanic service across Lehigh Acres and Fort Myers.",
+    "Call or text Sonny's at (239) 265-0439 for free landscaping & tree services quotes across Lee & Collier County.",
   canonical: `${SITE}/contact`,
   jsonLd: [
     breadcrumb([
@@ -345,9 +345,9 @@ push({
 // Warranty
 push({
   path: "/warranty-policy",
-  title: "Warranty Policy | Mike's Mobile Auto Repair",
+  title: "Warranty Policy | Sonny's Landscaping & Tree Services",
   description:
-    "12-month / 12,000-mile warranty on parts and labor for mobile auto repairs across Lehigh Acres and Fort Myers, FL.",
+    "Quality workmanship guarantee on all landscaping & tree work across Lee & Collier County, FL.",
   canonical: `${SITE}/warranty-policy`,
   jsonLd: [
     breadcrumb([
@@ -364,15 +364,15 @@ const sortedPosts = [...DATA.blogPosts].sort((a, b) =>
 push({
   path: "/blog",
   title:
-    "Mobile Mechanic Blog | Lehigh Acres and Fort Myers Auto Repair Tips",
+    "Sonny's Landscape & Tree Care Blog | Lee & Collier County, FL",
   description:
-    "Mobile mechanic guides for Lehigh Acres and Fort Myers — diagnostics, brakes, batteries, alternators, no-start fixes, and Florida-specific car care.",
+    "Landscape & tree care guides for Lee & Collier County — palm trimming, tree removal, sod, mulch, and Florida-specific landscaping.",
   canonical: `${SITE}/blog`,
   jsonLd: [
     {
       "@context": "https://schema.org",
       "@type": "Blog",
-      name: "Mike's Mobile Auto Repair Blog",
+      name: "Sonny's Landscape & Tree Care Blog",
       url: `${SITE}/blog`,
       publisher: orgPublisher,
       blogPost: sortedPosts.map((p) => ({
@@ -385,7 +385,7 @@ push({
         dateModified: p.dateISO,
         author: {
           "@type": "Organization",
-          name: "Mike's Mobile Auto Repair",
+          name: "Sonny's Landscaping & Tree Services",
           url: SITE,
         },
         publisher: orgPublisher,
@@ -415,13 +415,13 @@ for (const p of sortedPosts) {
       dateModified: p.dateISO,
       author: {
         "@type": "Organization",
-        name: "Mike's Mobile Auto Repair",
+        name: "Sonny's Landscaping & Tree Services",
         url: SITE,
       },
       publisher: orgPublisher,
       mainEntityOfPage: { "@type": "WebPage", "@id": url },
       keywords: p.tags.join(", "),
-      articleSection: "Auto Repair",
+      articleSection: "Landscaping & Tree Care",
       inLanguage: "en-US",
       url,
       wordCount,
@@ -436,7 +436,7 @@ for (const p of sortedPosts) {
 
   push({
     path: `/blog/${p.slug}`,
-    title: `${p.title} | Mike's Mobile Auto Repair`,
+    title: `${p.title} | Sonny's Landscaping & Tree Services`,
     description: p.excerpt,
     canonical: url,
     type: "article",
@@ -452,8 +452,8 @@ for (const t of allTagSlugs) {
   const url = `${SITE}/blog/tag/${t}`;
   push({
     path: `/blog/tag/${t}`,
-    title: `${t.replace(/-/g, " ")} | Mike's Mobile Auto Repair Blog`,
-    description: `Mobile mechanic articles tagged "${t}" — serving Lehigh Acres and Fort Myers.`,
+    title: `${t.replace(/-/g, " ")} | Sonny's Landscape & Tree Care Blog`,
+    description: `Landscape & tree care articles tagged "${t}" — serving Lee & Collier County, FL.`,
     canonical: url,
     jsonLd: [
       breadcrumb([
@@ -522,7 +522,7 @@ for (const lp of DATA.landingPages) {
       availableChannel: {
         "@type": "ServiceChannel",
         serviceUrl: canonical,
-        servicePhone: "+1-813-501-7572",
+        servicePhone: "+1-239-265-0439",
         availableLanguage: ["English", "Spanish"],
       },
       hoursAvailable: {

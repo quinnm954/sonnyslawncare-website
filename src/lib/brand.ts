@@ -1,14 +1,18 @@
 /**
- * Elite Level Lawn Care — single brand used across the marketing site.
+ * Sonny's Landscaping & Tree Services — single brand used across the marketing site.
  */
 export const BRAND = {
-  name: "Elite Level Lawn Care",
-  shortName: "Elite Level",
-  tagline: "Premium lawn care for Lee County, FL",
-  phoneDisplay: "(555) 123-4567",
-  phoneDigits: "5551234567",
-  email: "hello@elitelevellawncare.com",
-  serviceArea: "Lee County, FL",
+  name: "Sonny's Landscaping & Tree Services",
+  shortName: "Sonny's",
+  tagline: "Landscaping & tree services in Lee & Collier County, FL",
+  phoneDisplay: "(239) 265-0439",
+  phoneDigits: "2392650439",
+  email: "hello@sonnyslandscapingtreeservices.com",
+  serviceArea: "Lee & Collier County, FL",
+  addressStreet: "5321 28th St SW",
+  addressLocality: "Lehigh Acres",
+  addressRegion: "FL",
+  addressPostal: "33973",
   hours: "Mon–Sat 7am–6pm",
-  copyrightOwner: "Elite Level Lawn Care",
+  copyrightOwner: "Sonny's Landscaping & Tree Services",
 } as const;

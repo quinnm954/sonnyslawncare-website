@@ -9,7 +9,7 @@ const Newsletter = () => {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    toast.success("Thanks! We'll be in touch with seasonal lawn tips.");
+    toast.success("Thanks! We'll be in touch with seasonal landscape tips.");
     setEmail("");
   };
 
@@ -17,9 +17,9 @@ const Newsletter = () => {
     <section className="py-12 bg-secondary/20 border-y border-border">
       <div className="container mx-auto px-4">
         <div className="max-w-xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-2">Seasonal lawn tips, no spam</h2>
+          <h2 className="text-2xl font-bold mb-2">Seasonal landscape tips, no spam</h2>
           <p className="text-sm text-muted-foreground mb-6">
-            Quick monthly emails about Florida-specific lawn care.
+            Quick monthly emails about Florida landscaping, palm care, and seasonal tree work.
           </p>
           <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-2">
             <Input

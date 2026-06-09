@@ -10,8 +10,8 @@ import { BRAND } from "@/lib/brand";
 
 const ServicesIndex = () => {
   useSeo({
-    title: `Lawn Care Services in ${BRAND.serviceArea} | ${BRAND.name}`,
-    description: `Mowing, trimming, fertilization, mulch, sod, irrigation, and landscape design across ${BRAND.serviceArea}. Free quotes — call ${BRAND.phoneDisplay}.`,
+    title: `Landscaping & Tree Services in ${BRAND.serviceArea} | ${BRAND.name}`,
+    description: `Landscape design, tree trimming & removal, mulch, sod, irrigation, and full-property maintenance across ${BRAND.serviceArea}. Free quotes — call ${BRAND.phoneDisplay}.`,
     canonical: "/services",
     breadcrumbs: [
       { name: "Home", url: "/" },
@@ -20,7 +20,7 @@ const ServicesIndex = () => {
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      name: `Lawn Care Services — ${BRAND.name}`,
+      name: `Landscaping & Tree Services — ${BRAND.name}`,
       itemListElement: categories.map((c, i) => ({
         "@type": "ListItem",
         position: i + 1,
@@ -37,7 +37,7 @@ const ServicesIndex = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-10">
             <h1 className="text-4xl md:text-5xl font-bold mb-3">
-              Lawn Care Services in {BRAND.serviceArea}
+              Landscaping & Tree Services in {BRAND.serviceArea}
             </h1>
             <p className="text-lg text-muted-foreground mb-6">
               Everything we offer across {BRAND.serviceArea}.

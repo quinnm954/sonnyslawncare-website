@@ -12,8 +12,8 @@ import { REVIEWS_META } from "@/data/reviewsMeta";
 
 const Index = () => {
   useSeo({
-    title: `${BRAND.name} | Lawn Care in ${BRAND.serviceArea}`,
-    description: `Weekly mowing, trimming, fertilization, mulch, and full landscape services across ${BRAND.serviceArea}. Call ${BRAND.phoneDisplay} for a free quote.`,
+    title: `${BRAND.name} | Landscaping & Tree Services in ${BRAND.serviceArea}`,
+    description: `Landscape design, tree trimming & removal, mulch, sod, and full-property maintenance across ${BRAND.serviceArea}. FNGLA Certified. Call ${BRAND.phoneDisplay} for a free quote.`,
     canonical: "/",
     jsonLd: [
       {
@@ -33,17 +33,21 @@ const Index = () => {
         priceRange: "$$",
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Fort Myers",
+          streetAddress: "5321 28th St SW",
+          addressLocality: "Lehigh Acres",
           addressRegion: "FL",
+          postalCode: "33973",
           addressCountry: "US",
         },
         areaServed: [
+          { "@type": "City", name: "Lehigh Acres, FL" },
           { "@type": "City", name: "Fort Myers, FL" },
           { "@type": "City", name: "Cape Coral, FL" },
-          { "@type": "City", name: "Lehigh Acres, FL" },
           { "@type": "City", name: "Bonita Springs, FL" },
           { "@type": "City", name: "Estero, FL" },
+          { "@type": "City", name: "Naples, FL" },
           { "@type": "AdministrativeArea", name: "Lee County, FL" },
+          { "@type": "AdministrativeArea", name: "Collier County, FL" },
         ],
         aggregateRating: {
           "@type": "AggregateRating",
@@ -67,7 +71,7 @@ const Index = () => {
         <section className="py-12 md:py-20 pb-28 md:pb-20 text-center">
           <div className="container mx-auto px-4 max-w-2xl">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
-              Ready for a greener lawn?
+              Ready to refresh your property?
             </h2>
             <p className="text-sm md:text-base text-muted-foreground mb-6">
               Call or text {BRAND.phoneDisplay} for a free quote in {BRAND.serviceArea}.

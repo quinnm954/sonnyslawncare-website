@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "St. Augustine is the most common lawn grass in Lee County. Here's the mowing height that keeps it thick, green, and weed-free.",
     date: "2026-04-10",
-    author: "Elite Level Lawn Care",
+    author: "Sonny's Landscaping & Tree Services",
     tags: ["lawn-care", "mowing"],
     readingMinutes: 4,
     content:
@@ -29,7 +29,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Florida fertilizer ordinances limit when you can apply nitrogen. Here's a simple schedule that keeps your lawn healthy and compliant.",
     date: "2026-03-22",
-    author: "Elite Level Lawn Care",
+    author: "Sonny's Landscaping & Tree Services",
     tags: ["lawn-care", "fertilization"],
     readingMinutes: 5,
     content:
@@ -41,7 +41,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Over-trimming palms can permanently damage them. Here's the right way to trim queens, sabals, and royal palms in Lee County.",
     date: "2026-02-14",
-    author: "Elite Level Lawn Care",
+    author: "Sonny's Landscaping & Tree Services",
     tags: ["palm-trees", "trimming"],
     readingMinutes: 4,
     content:

@@ -7,8 +7,8 @@ import { BRAND } from "@/lib/brand";
 
 const ContactPage = () => {
   useSeo({
-    title: `Contact ${BRAND.name} | Free Lawn Care Quote in ${BRAND.serviceArea}`,
-    description: `Call or text ${BRAND.phoneDisplay} for a free lawn care quote in ${BRAND.serviceArea}. Same-day response, ${BRAND.hours}.`,
+    title: `Contact ${BRAND.name} | Free Landscaping & Tree Services Quote in ${BRAND.serviceArea}`,
+    description: `Call or text ${BRAND.phoneDisplay} for a free landscaping & tree services quote in ${BRAND.serviceArea}. Same-day response, ${BRAND.hours}.`,
     canonical: "/contact",
     breadcrumbs: [
       { name: "Home", url: "/" },

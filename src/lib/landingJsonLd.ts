@@ -5,7 +5,7 @@
 
 const SITE = "https://elite-level-lawn-care.lovable.app";
 const BUSINESS_ID = `${SITE}/#business`;
-const PHONE = "+1-813-501-7572";
+const PHONE = "+1-239-265-0439";
 
 export type LandingLdInput = {
   slug: string;

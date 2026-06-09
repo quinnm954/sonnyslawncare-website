@@ -10,7 +10,7 @@ const LocalLanding = () => {
   const page = slug ? findLocalLandingPage(slug) : undefined;
 
   useSeo({
-    title: page?.title ?? "Local Lawn Care",
+    title: page?.title ?? "Local Landscaping & Tree Services",
     description: page?.metaDescription ?? "",
     canonical: `/local/${slug}`,
     noindex: !page,

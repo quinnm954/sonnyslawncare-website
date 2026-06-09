@@ -12,7 +12,7 @@ const Footer = () => {
           <div>
             <p className="text-lg font-bold text-primary mb-2">{BRAND.name}</p>
             <p className="text-sm text-muted-foreground">
-              Premium lawn care across {BRAND.serviceArea} — mowing, trimming, fertilization, and full landscape services.
+              Landscaping &amp; tree services across {BRAND.serviceArea} — landscape design, tree trimming &amp; removal, mulch, sod, and full-property maintenance. Licensed, insured, and FNGLA Certified.
             </p>
             <a
               href={`tel:${BRAND.phoneDigits}`}
@@ -52,7 +52,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/lee-county-fl" className="text-muted-foreground hover:text-primary">
-                  Lee County, FL
+                  Lee &amp; Collier County, FL
                 </Link>
               </li>
               {cities.slice(0, 6).map((c) => (

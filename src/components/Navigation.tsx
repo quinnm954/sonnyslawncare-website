@@ -101,7 +101,7 @@ const Navigation = () => {
               {BRAND.shortName}
             </span>
             <span className="hidden sm:inline text-sm text-muted-foreground">
-              Lawn Care
+              Landscaping &amp; Tree Services
             </span>
           </Link>
 

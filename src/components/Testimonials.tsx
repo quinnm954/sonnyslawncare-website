@@ -7,17 +7,17 @@ const REVIEWS: Review[] = [
   {
     name: "Sarah M.",
     city: "Fort Myers",
-    text: "Best lawn service we've had in years. They show up every week without fail and the yard always looks sharp.",
+    text: "Sonny and his crew show up when they say they will and the property always looks immaculate. Great with our palms.",
   },
   {
     name: "Dave R.",
     city: "Cape Coral",
-    text: "Great work on hedge trimming and mulch refresh. Fair prices and easy to text.",
+    text: "Trimmed a huge oak that was overhanging our pool cage — fast, safe, and cleaned up perfectly. Fair price too.",
   },
   {
     name: "Linda P.",
     city: "Estero",
-    text: "Fertilization program turned our St. Augustine around in a few months. Thick and green now.",
+    text: "Beautiful landscape redesign. They picked the right plants for our yard and everything is thriving.",
   },
 ];
 
@@ -26,7 +26,7 @@ const Testimonials = () => (
     <div className="container mx-auto px-4">
       <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">What our customers say</h2>
-        <p className="text-sm md:text-base text-muted-foreground">Real reviews from Lee County homeowners.</p>
+        <p className="text-sm md:text-base text-muted-foreground">Real reviews from Lee &amp; Collier County homeowners.</p>
       </div>
       <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-2 md:overflow-visible md:mx-0 md:px-0 md:pb-0">
         {REVIEWS.map((r) => (
