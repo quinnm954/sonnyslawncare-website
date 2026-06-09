@@ -105,7 +105,7 @@ push({
   title:
     "Auto Repair Near Me | Mobile Auto Repair in Lehigh Acres, Fort Myers, Cape Coral, Naples, Estero & Bonita Springs FL",
   description:
-    "Auto repair near me in Lehigh Acres, Fort Myers, Cape Coral, Naples, Estero & Bonita Springs, FL. Mobile mechanic comes to you — diagnostics, brakes, batteries, oil changes. Call (239) 265-0439.",
+    "Landscaping & tree services across Lehigh Acres, Fort Myers, Cape Coral, Naples, Estero & Bonita Springs, FL — landscape design, tree trimming & removal, mulch, sod, mowing. FNGLA Certified. Call (239) 265-0439.",
   canonical: `${SITE}/`,
   // The AutoRepair business entity (with aggregateRating, hours, address,
   // sameAs) is declared once in index.html under @id #business. Here we
@@ -120,7 +120,7 @@ push({
           "@type": "AutoRepair",
           "@id": `${SITE}/#business`,
           name: "Sonny's Landscaping & Tree Services",
-          telephone: "+18135017572",
+          telephone: "+12392650439",
           url: `${SITE}/`,
           address: {
             "@type": "PostalAddress",
@@ -205,7 +205,7 @@ push({
   path: "/services",
   title: "Landscaping & Tree Services | Sonny's Landscaping & Tree Services",
   description:
-    "All mobile mechanic services offered across Lehigh Acres and Fort Myers — diagnostics, brakes, batteries, alternators, no-start.",
+    "All landscaping & tree services offered across Lee & Collier County — landscape design, tree trimming & removal, mulch, sod, mowing, palm care.",
   canonical: `${SITE}/services`,
   jsonLd: [
     breadcrumb([
@@ -259,7 +259,7 @@ push({
   path: "/service-areas",
   title: "Service Areas | Sonny's Landscaping & Tree Services",
   description:
-    "Mobile mechanic service areas across Lehigh Acres and Fort Myers, FL.",
+    "Landscaping & tree services across Lee & Collier County, FL — Lehigh Acres, Fort Myers, Cape Coral, Bonita Springs, Estero & Naples.",
   canonical: `${SITE}/service-areas`,
   jsonLd: [
     breadcrumb([
@@ -366,7 +366,7 @@ push({
   title:
     "Mobile Mechanic Blog | Lehigh Acres and Fort Myers Auto Repair Tips",
   description:
-    "Mobile mechanic guides for Lehigh Acres and Fort Myers — diagnostics, brakes, batteries, alternators, no-start fixes, and Florida-specific car care.",
+    "Landscape & tree care guides for Lee & Collier County — palm trimming, tree removal, sod, mulch, and Florida-specific landscaping.",
   canonical: `${SITE}/blog`,
   jsonLd: [
     {
@@ -453,7 +453,7 @@ for (const t of allTagSlugs) {
   push({
     path: `/blog/tag/${t}`,
     title: `${t.replace(/-/g, " ")} | Sonny's Landscape & Tree Care Blog`,
-    description: `Mobile mechanic articles tagged "${t}" — serving Lehigh Acres and Fort Myers.`,
+    description: `Landscape & tree care articles tagged "${t}" — serving Lee & Collier County, FL.`,
     canonical: url,
     jsonLd: [
       breadcrumb([
@@ -522,7 +522,7 @@ for (const lp of DATA.landingPages) {
       availableChannel: {
         "@type": "ServiceChannel",
         serviceUrl: canonical,
-        servicePhone: "+1-813-501-7572",
+        servicePhone: "+1-239-265-0439",
         availableLanguage: ["English", "Spanish"],
       },
       hoursAvailable: {
