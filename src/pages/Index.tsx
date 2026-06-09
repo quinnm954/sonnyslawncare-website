@@ -71,7 +71,7 @@ const Index = () => {
         <section className="py-12 md:py-20 pb-28 md:pb-20 text-center">
           <div className="container mx-auto px-4 max-w-2xl">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
-              Ready for a greener lawn?
+              Ready to refresh your property?
             </h2>
             <p className="text-sm md:text-base text-muted-foreground mb-6">
               Call or text {BRAND.phoneDisplay} for a free quote in {BRAND.serviceArea}.
