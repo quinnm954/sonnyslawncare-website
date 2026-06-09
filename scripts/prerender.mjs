@@ -79,7 +79,7 @@ const push = (r) => routes.push(r);
 
 // Home
 const HOME_SERVICES = [
-  "Mobile Auto Repair",
+  "Landscaping & Tree Services",
   "Brake Repair",
   "Battery Replacement",
   "Alternator Repair",
@@ -103,7 +103,7 @@ const HOME_CITIES = [
 push({
   path: "/",
   title:
-    "Auto Repair Near Me | Mobile Auto Repair in Lehigh Acres, Fort Myers, Cape Coral, Naples, Estero & Bonita Springs FL",
+    "Landscaping & Tree Services Near Me | Lehigh Acres, Fort Myers, Cape Coral, Naples, Estero & Bonita Springs FL",
   description:
     "Landscaping & tree services across Lehigh Acres, Fort Myers, Cape Coral, Naples, Estero & Bonita Springs, FL — landscape design, tree trimming & removal, mulch, sod, mowing. FNGLA Certified. Call (239) 265-0439.",
   canonical: `${SITE}/`,
@@ -151,7 +151,7 @@ push({
           ],
           hasOfferCatalog: {
             "@type": "OfferCatalog",
-            name: "Mobile Auto Repair Services",
+            name: "Landscaping & Tree Services",
             itemListElement: HOME_SERVICES.map((s) => ({
               "@type": "Offer",
               itemOffered: { "@type": "Service", name: s },
@@ -160,8 +160,8 @@ push({
         },
         ...HOME_CITIES.map((c) => ({
           "@type": "Service",
-          name: `Auto Repair in ${c.name}, ${c.state}`,
-          serviceType: "Mobile Auto Repair",
+          name: `Landscaping & Tree Services in ${c.name}, ${c.state}`,
+          serviceType: "Landscaping & Tree Services",
           provider: businessRef,
           areaServed: {
             "@type": "City",
@@ -347,7 +347,7 @@ push({
   path: "/warranty-policy",
   title: "Warranty Policy | Sonny's Landscaping & Tree Services",
   description:
-    "12-month / 12,000-mile warranty on parts and labor for mobile auto repairs across Lehigh Acres and Fort Myers, FL.",
+    "Quality workmanship guarantee on all landscaping & tree work across Lee & Collier County, FL.",
   canonical: `${SITE}/warranty-policy`,
   jsonLd: [
     breadcrumb([
@@ -364,7 +364,7 @@ const sortedPosts = [...DATA.blogPosts].sort((a, b) =>
 push({
   path: "/blog",
   title:
-    "Mobile Mechanic Blog | Lehigh Acres and Fort Myers Auto Repair Tips",
+    "Sonny's Landscape & Tree Care Blog | Lee & Collier County, FL",
   description:
     "Landscape & tree care guides for Lee & Collier County — palm trimming, tree removal, sod, mulch, and Florida-specific landscaping.",
   canonical: `${SITE}/blog`,
@@ -421,7 +421,7 @@ for (const p of sortedPosts) {
       publisher: orgPublisher,
       mainEntityOfPage: { "@type": "WebPage", "@id": url },
       keywords: p.tags.join(", "),
-      articleSection: "Auto Repair",
+      articleSection: "Landscaping & Tree Care",
       inLanguage: "en-US",
       url,
       wordCount,
