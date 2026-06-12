@@ -3,6 +3,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, NavLink } from "react-router-dom";
 import { BRAND } from "@/lib/brand";
+import logo from "@/assets/sonnys-logo.png";
 
 const NAV_ITEMS = [
   { to: "/", label: "Home", end: true },
@@ -97,11 +98,18 @@ const Navigation = () => {
             className="flex items-center gap-2 active:scale-95 transition-transform min-h-11"
             onClick={close}
           >
-            <span className="text-lg md:text-xl font-bold text-primary">
-              {BRAND.shortName}
-            </span>
-            <span className="hidden sm:inline text-sm text-muted-foreground">
-              Landscaping &amp; Tree Services
+            <img
+              src={logo}
+              alt="Sonny's Landscaping & Tree Services logo"
+              width={40}
+              height={40}
+              className="h-9 w-9 md:h-10 md:w-10"
+            />
+            <span className="text-base md:text-lg font-bold leading-tight">
+              <span className="text-foreground">sonny's</span>{" "}
+              <span className="hidden sm:inline text-muted-foreground font-medium">
+                landscaping &amp; tree services
+              </span>
             </span>
           </Link>
 
