@@ -51,7 +51,7 @@
     --gradient-card: linear-gradient(145deg, hsl(60, 20%, 96%) 0%, hsl(60, 20%, 92%) 100%);
 
     --shadow-glow: 0 0 40px hsl(147 61% 29% / 0.2);
-    --shadow-glow-gold: 0 0 40px hsl(45 90% 57% / 0.3);
+    --shadow-glow-gold: 0 0 40px hsl(33 100% 48% / 0.3);
     --shadow-card: 0 10px 40px hsl(0 0% 0% / 0.08);
     --shadow-elevated: 0 20px 60px hsl(0 0% 0% / 0.12);
 
@@ -87,7 +87,7 @@
     --muted: 0 0% 18%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 45 90% 57%;
+    --accent: 33 100% 48%;
     --accent-foreground: 0 0% 10%;
 
     --border: 0 0% 20%;
@@ -100,7 +100,7 @@
     --shadow-card: 0 10px 40px hsl(0 0% 0% / 0.4);
     --shadow-elevated: 0 20px 60px hsl(0 0% 0% / 0.5);
     --shadow-glow: 0 0 40px hsl(147 50% 40% / 0.3);
-    --shadow-glow-gold: 0 0 40px hsl(45 90% 57% / 0.3);
+    --shadow-glow-gold: 0 0 40px hsl(33 100% 48% / 0.3);
 
     --sidebar-background: 0 0% 10%;
     --sidebar-foreground: 60 29% 97%;
