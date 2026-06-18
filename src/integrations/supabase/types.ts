@@ -270,36 +270,6 @@ export type Database = {
         }
         Relationships: []
       }
-      blog_comments: {
-        Row: {
-          author_email: string
-          author_name: string
-          content: string
-          created_at: string
-          id: string
-          is_approved: boolean
-          post_slug: string
-        }
-        Insert: {
-          author_email: string
-          author_name: string
-          content: string
-          created_at?: string
-          id?: string
-          is_approved?: boolean
-          post_slug: string
-        }
-        Update: {
-          author_email?: string
-          author_name?: string
-          content?: string
-          created_at?: string
-          id?: string
-          is_approved?: boolean
-          post_slug?: string
-        }
-        Relationships: []
-      }
       booking_requests: {
         Row: {
           confirmation_token: string
